@@ -9,21 +9,21 @@ import * as ROUTES from '../constants/routes';
 export default function Signin() {
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
-  const [emailAdress, setEmailAdress] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const isInvalid = password === '' || emailAdress === '';
+  const isInvalid = password === '' || emailAddress === '';
   const handleSignIn = (e) => {
     e.preventDefault();
     firebase
       .auth()
-      .signInWithEmailAndPassword(emailAdress, password)
+      .signInWithEmailAndPassword(emailAddress, password)
       .then(() => {
         history.push(ROUTES.BROWSE);
       })
       .catch((error) => {
-        setEmailAdress('');
+        setEmailAddress('');
         setPassword('');
         setError(error.message);
       });
@@ -37,8 +37,8 @@ export default function Signin() {
           <Form.Base onSubmit={handleSignIn} method="POST">
             <Form.Input
               placeholder="Email adress"
-              value={emailAdress}
-              onChange={({ target }) => setEmailAdress(target.value)}
+              value={emailAddress}
+              onChange={({ target }) => setEmailAddress(target.value)}
             />
             <Form.Input
               type="password"
