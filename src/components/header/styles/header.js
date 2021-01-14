@@ -109,19 +109,24 @@ export const SearchIcon = styled.button`
 
 export const ButtonLink = styled(ReachRouterLink)`
   display: block;
-  background-color: #e50914;
+  background-color: #e50914t a
+  text-align: center;
   width: 84px;
   height: fit-content;
   color: white;
   border: 0;
   font-size: 15px;
   border-radius: 3px;
-  padding: 8px 17px;
+  padding: 4px;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
     background: #f40612;
+  }
+
+  p {
+    margin: auto;
   }
 `;
 
